@@ -1,15 +1,35 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
-{{ partial "date-and-tags.html" . }}
-<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 my-auto">
+      <h1>{{ .Title }}</h1>
+      {{ partial "date-and-tags.html" . }}
+    </div>
+    <div class="col-sm-4">
+      <img src={{ printf "%s" $.Params.imagelink }} class="rounded float-end" alt="colors">
+    </div>
+  </div>
+</div>
 
-<h4><span style="color:green">{{ .Params.lyric }}</span></h4>
 
 <br>
 
-<iframe src={{ printf "%s" $.Params.playlistlink }} width="1000" height="500" frameborder="1" allowtransparency="true" allow="encrypted-media"></iframe>
+<figure class="text-center">
+  <blockquote class="blockquote">
+    <p><h4><span style="color:green">{{ .Params.lyric }}</span></h4></p>
+  </blockquote>
+</figure>
 
-{{ .Content }}
+<br>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <iframe src={{ printf "%s" $.Params.playlistlink }} width="500" height="500" frameborder="1" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+  <div class="row justify-content-md-center">
+    {{ .Content }}
+  </div>
+</div>
 
 {{ end }}

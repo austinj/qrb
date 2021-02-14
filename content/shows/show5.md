@@ -4,6 +4,7 @@ date: 2021-02-01T11:36:23-08:00
 tags: ["tirzah", "bowie", "hiphop", "r&b"]
 lyric: "wrote rhymes with father time on mother nature's fabric"
 playlistlink: "https://open.spotify.com/embed/playlist/4IIFPlXfaxkLGB6GCeIuJ7"
+imagelink: "http://www.random-art.org/img/large/328662.jpg"
 draft: false
 ---
 
