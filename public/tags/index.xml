@@ -1,12 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on The Quadraphonic Rock Bloc</title>
+    <title>Tags on The Quadraphonic Rock Block</title>
     <link>https://www.quadraphonic.org/tags/</link>
-    <description>Recent content in Tags on The Quadraphonic Rock Bloc</description>
+    <description>Recent content in Tags on The Quadraphonic Rock Block</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Jan 2021 14:52:48 -0800</lastBuildDate><atom:link href="https://www.quadraphonic.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Feb 2021 22:16:49 -0800</lastBuildDate><atom:link href="https://www.quadraphonic.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>devo</title>
+      <link>https://www.quadraphonic.org/tags/devo/</link>
+      <pubDate>Sat, 13 Feb 2021 22:16:49 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/tags/devo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>electronic</title>
+      <link>https://www.quadraphonic.org/tags/electronic/</link>
+      <pubDate>Sat, 13 Feb 2021 22:16:49 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/tags/electronic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kate bush</title>
+      <link>https://www.quadraphonic.org/tags/kate-bush/</link>
+      <pubDate>Sat, 13 Feb 2021 22:16:49 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/tags/kate-bush/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bowie</title>
+      <link>https://www.quadraphonic.org/tags/bowie/</link>
+      <pubDate>Mon, 01 Feb 2021 11:36:23 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/tags/bowie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hiphop</title>
+      <link>https://www.quadraphonic.org/tags/hiphop/</link>
+      <pubDate>Mon, 01 Feb 2021 11:36:23 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/tags/hiphop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>r&amp;b</title>
+      <link>https://www.quadraphonic.org/tags/rb/</link>
+      <pubDate>Mon, 01 Feb 2021 11:36:23 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/tags/rb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tirzah</title>
+      <link>https://www.quadraphonic.org/tags/tirzah/</link>
+      <pubDate>Mon, 01 Feb 2021 11:36:23 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/tags/tirzah/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>england</title>
       <link>https://www.quadraphonic.org/tags/england/</link>
@@ -31,15 +94,6 @@
       <pubDate>Sat, 23 Jan 2021 14:52:48 -0800</pubDate>
       
       <guid>https://www.quadraphonic.org/tags/ghana/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kate bush</title>
-      <link>https://www.quadraphonic.org/tags/kate-bush/</link>
-      <pubDate>Sat, 23 Jan 2021 14:52:48 -0800</pubDate>
-      
-      <guid>https://www.quadraphonic.org/tags/kate-bush/</guid>
       <description></description>
     </item>
     
@@ -103,15 +157,6 @@
       <pubDate>Fri, 22 Jan 2021 21:17:12 -0800</pubDate>
       
       <guid>https://www.quadraphonic.org/tags/chile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rap</title>
-      <link>https://www.quadraphonic.org/tags/rap/</link>
-      <pubDate>Fri, 22 Jan 2021 21:17:12 -0800</pubDate>
-      
-      <guid>https://www.quadraphonic.org/tags/rap/</guid>
       <description></description>
     </item>
     
