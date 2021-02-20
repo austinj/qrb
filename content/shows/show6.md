@@ -4,6 +4,6 @@ date: 2021-02-13T22:16:49-08:00
 tags: ["devo", "kate bush", "electronic"]
 lyric: "is there an anagram of everyone who's entered your thoughts"
 playlistlink: "https://open.spotify.com/embed/playlist/5BqQFw9aNF4G0pKm4gkDbI"
-imagelink: "http://www.random-art.org/img/large/328643.jpg"
-draft: false
+imagelink: "http://www.quadraphonic.org/6.jpg"
+draft: true
 ---
