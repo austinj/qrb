@@ -26,10 +26,6 @@ menu:
     pre: tag
     url: /tags/
     weight: 3
-  - name: About
-    pre: smile
-    url: /about/
-    weight: 4
   - name: RSS
     pre: rss
     url: /index.xml
