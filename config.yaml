@@ -40,7 +40,7 @@ params:
   showActiveNav: true
   containerMaxWidth: 700px
   dateFormat: Jan 2, 2006
-  homeText: is a radio show on [KUCR](https://kucr.org/), the campus radio station for the [University of California, Riverside](https://www.ucr.edu/). We play music.
+  homeText: is a radio show on [KUCR](https://kucr.org/), the campus radio station for the [University of California, Riverside](https://www.ucr.edu/). It's music, broadcast on Thursday nights from 7 to 8 pm Pacific.
   footerText: Made with [Hugo](https://gohugo.io/) & [Vanilla](https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme)
   hideFooter: false
   katex: true
