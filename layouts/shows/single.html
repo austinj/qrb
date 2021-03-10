@@ -5,6 +5,8 @@
     <div class="col-sm-8 my-auto">
       <h1>{{ .Title }}</h1>
       {{ partial "date-and-tags.html" . }}
+      <br>
+      <i data-feather="radio"></i>   <a href={{ printf "%s" $.Params.spinitronlink }}>Spinitron</a>
     </div>
     <div class="col-sm-4">
       <img src={{ printf "%s" $.Params.imagelink }} class="rounded float-end" alt="colors">

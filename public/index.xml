@@ -6,7 +6,16 @@
     <description>Recent content on The Quadraphonic Rock Block</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Feb 2021 19:00:00 -0800</lastBuildDate><atom:link href="https://www.quadraphonic.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Mar 2021 19:00:00 -0800</lastBuildDate><atom:link href="https://www.quadraphonic.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Show #2</title>
+      <link>https://www.quadraphonic.org/shows/21-03-03/</link>
+      <pubDate>Wed, 03 Mar 2021 19:00:00 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/shows/21-03-03/</guid>
+      <description>This show started with &amp;ldquo;Swift Breeze&amp;rdquo; by Yasmine Williams.</description>
+    </item>
+    
     <item>
       <title>Show #1</title>
       <link>https://www.quadraphonic.org/shows/21-02-25/</link>
@@ -14,6 +23,16 @@
       
       <guid>https://www.quadraphonic.org/shows/21-02-25/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>The Quadraphonic Rock Block</title>
+      <link>https://www.quadraphonic.org/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.quadraphonic.org/about/</guid>
+      <description>is a radio show on KUCR, which you can find on 88.3 FM broadcasting from Riverside, California. My name is Austin, and I play a lot of different music.
+.......Listen...  </description>
     </item>
     
   </channel>
