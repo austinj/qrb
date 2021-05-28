@@ -2,7 +2,7 @@ baseURL: https://www.quadraphonic.org
 languageCode: en-us
 title: The Quadraphonic Rock Block
 theme: vanilla-bootstrap-hugo-theme
-googleAnalytics: UA-123456789-1
+googleAnalytics: G-NZ46HPR4D7
 
 taxonomies:
   tag: tags
