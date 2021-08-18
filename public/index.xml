@@ -178,5 +178,14 @@
       <description></description>
     </item>
     
+    <item>
+      <title>More</title>
+      <link>https://www.quadraphonic.org/more/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.quadraphonic.org/more/</guid>
+      <description>from KUCR&amp;rsquo;s Quaranzine in July 2021</description>
+    </item>
+    
   </channel>
 </rss>

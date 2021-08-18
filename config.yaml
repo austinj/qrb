@@ -26,6 +26,10 @@ menu:
     pre: tag
     url: /tags/
     weight: 3
+  - name: More
+    pre: fast-forward
+    url: /more/
+    weight: 4
   - name: RSS
     pre: rss
     url: /index.xml
