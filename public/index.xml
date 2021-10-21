@@ -6,7 +6,16 @@
     <description>Recent content on The Quadraphonic Rock Block</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Aug 2021 19:00:00 -0800</lastBuildDate><atom:link href="https://www.quadraphonic.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Sep 2021 19:00:00 -0800</lastBuildDate><atom:link href="https://www.quadraphonic.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Show #21</title>
+      <link>https://www.quadraphonic.org/shows/21-09-09/</link>
+      <pubDate>Thu, 09 Sep 2021 19:00:00 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/shows/21-09-09/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Show #20</title>
       <link>https://www.quadraphonic.org/shows/21-08-19/</link>
@@ -40,6 +49,15 @@
       <pubDate>Thu, 15 Jul 2021 19:00:00 -0800</pubDate>
       
       <guid>https://www.quadraphonic.org/shows/21-07-15/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Show #23</title>
+      <link>https://www.quadraphonic.org/shows/21-10-07/</link>
+      <pubDate>Sat, 10 Jul 2021 19:00:00 -0800</pubDate>
+      
+      <guid>https://www.quadraphonic.org/shows/21-10-07/</guid>
       <description></description>
     </item>
     
@@ -194,6 +212,24 @@
       
       <guid>https://www.quadraphonic.org/more/</guid>
       <description>from KUCR&amp;rsquo;s Quaranzine in July 2021</description>
+    </item>
+    
+    <item>
+      <title>Show #22</title>
+      <link>https://www.quadraphonic.org/shows/21-09-30/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.quadraphonic.org/shows/21-09-30/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Show #24</title>
+      <link>https://www.quadraphonic.org/shows/21-10-14/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.quadraphonic.org/shows/21-10-14/</guid>
+      <description></description>
     </item>
     
   </channel>

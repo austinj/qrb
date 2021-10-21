@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.quadraphonic.org/tags/germany/</loc>
+    <lastmod>2021-09-09T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/tags/java/</loc>
+    <lastmod>2021-09-09T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/tags/niger/</loc>
+    <lastmod>2021-09-09T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/tags/rb/</loc>
+    <lastmod>2021-09-09T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/shows/21-09-09/</loc>
+    <lastmod>2021-09-09T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/shows/</loc>
+    <lastmod>2021-09-09T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/tags/</loc>
+    <lastmod>2021-09-09T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/</loc>
+    <lastmod>2021-09-09T19:00:00-08:00</lastmod>
+  </url><url>
     <loc>https://www.quadraphonic.org/tags/be-bop-deluxe/</loc>
     <lastmod>2021-08-19T19:00:00-08:00</lastmod>
   </url><url>
@@ -15,15 +39,6 @@
     <lastmod>2021-08-19T19:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.quadraphonic.org/shows/21-08-19/</loc>
-    <lastmod>2021-08-19T19:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.quadraphonic.org/shows/</loc>
-    <lastmod>2021-08-19T19:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.quadraphonic.org/tags/</loc>
-    <lastmod>2021-08-19T19:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.quadraphonic.org/</loc>
     <lastmod>2021-08-19T19:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.quadraphonic.org/tags/amadou-et-miriam/</loc>
@@ -71,6 +86,15 @@
     <loc>https://www.quadraphonic.org/shows/21-07-15/</loc>
     <lastmod>2021-07-15T19:00:00-08:00</lastmod>
   </url><url>
+    <loc>https://www.quadraphonic.org/tags/hook/</loc>
+    <lastmod>2021-07-10T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/tags/punk/</loc>
+    <lastmod>2021-07-10T19:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.quadraphonic.org/shows/21-10-07/</loc>
+    <lastmod>2021-07-10T19:00:00-08:00</lastmod>
+  </url><url>
     <loc>https://www.quadraphonic.org/tags/nahawa-doumbia/</loc>
     <lastmod>2021-07-08T19:00:00-08:00</lastmod>
   </url><url>
@@ -84,9 +108,6 @@
     <lastmod>2021-07-08T19:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.quadraphonic.org/tags/brazil/</loc>
-    <lastmod>2021-06-24T19:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.quadraphonic.org/tags/niger/</loc>
     <lastmod>2021-06-24T19:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.quadraphonic.org/tags/no-wave/</loc>
@@ -113,9 +134,6 @@
     <loc>https://www.quadraphonic.org/tags/kendrick/</loc>
     <lastmod>2021-05-27T19:00:00-08:00</lastmod>
   </url><url>
-    <loc>https://www.quadraphonic.org/tags/rb/</loc>
-    <lastmod>2021-05-27T19:00:00-08:00</lastmod>
-  </url><url>
     <loc>https://www.quadraphonic.org/shows/21-05-27/</loc>
     <lastmod>2021-05-27T19:00:00-08:00</lastmod>
   </url><url>
@@ -132,9 +150,6 @@
     <lastmod>2021-05-20T19:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.quadraphonic.org/tags/emo/</loc>
-    <lastmod>2021-05-20T19:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.quadraphonic.org/tags/hook/</loc>
     <lastmod>2021-05-20T19:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.quadraphonic.org/tags/indie/</loc>
@@ -258,5 +273,13 @@
     <lastmod>2021-02-25T19:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.quadraphonic.org/more/</loc>
+  </url><url>
+    <loc>https://www.quadraphonic.org/tags/postrock/</loc>
+  </url><url>
+    <loc>https://www.quadraphonic.org/shows/21-09-30/</loc>
+  </url><url>
+    <loc>https://www.quadraphonic.org/shows/21-10-14/</loc>
+  </url><url>
+    <loc>https://www.quadraphonic.org/tags/solange/</loc>
   </url>
 </urlset>
