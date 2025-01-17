@@ -9,8 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/tailwind": "^5.1.4",
     "astro": "^5.1.7",
     "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@iconify-json/codicon": "^1.2.8",
+    "@iconify-json/la": "^1.2.1",
+    "@iconify-json/material-symbols": "^1.2.12",
+    "@iconify-json/mdi": "^1.2.2",
+    "astro-icon": "^1.1.5"
   }
 }

@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Show from "../components/Show.astro";
+
+const pageTitle = "My Astro Learning Blog";
+const allShows = await getCollection("shows");
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>This is where I will post about my journey learning Astro.</p>
+  <ul>
+    {
+      allShows.map((show) => (
+        <Show url={`/posts/${show.id}/`} title={show.data.title} />
+      ))
+    }
+  </ul>
+</BaseLayout>
