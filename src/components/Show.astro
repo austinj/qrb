@@ -1,4 +1,23 @@
 ---
-const { title, url } = Astro.props;
+interface Props {
+  url: string;
+  title: string;
+  tags: string[];
+}
+
+const { url, title, tags } = Astro.props as Props;
 ---
-<li><a href={url}>{title}</a></li>
+
+<div class="flex items-center space-x-2">
+  <a href={url} class="text-blue-500 hover:underline font-semibold">
+    {title}
+  </a>
+  <span class="text-gray-500">|</span>
+  <span class="text-gray-600">
+    {tags.map((tag, index) => (
+      <span>
+        {tag}{index < tags.length - 1 ? ', ' : ''}
+      </span>
+    ))}
+  </span>
+</div>

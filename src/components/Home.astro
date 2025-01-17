@@ -1,5 +1,56 @@
 ---
-const pageTitle = "About Me";
+import { getCollection } from "astro:content";
+import Show from "../components/Show.astro";
+
+const pageTitle = "KUCR";
+
+// Fetch and sort the collection by date in descending order
+const allShows = (await getCollection("shows"))
+  .filter((show) => show && show.data && show.data.title && show.id) // Filter out invalid or incomplete entries
+  .sort((a, b) => {
+    const dateA = new Date(a.data.pubDate);
+    const dateB = new Date(b.data.pubDate);
+    return dateB.getTime() - dateA.getTime(); // Most recent date first
+  });
+
+// Get the most recent show and the next three shows
+const mostRecentShow = allShows[0];
+const nextThreeShows = allShows.slice(1, 4);
 ---
 
-<p>The Quadraphonic Rock Block is a radio show on KUCR, the campus radio station for the University of California, Riverside. It's music, broadcast on Thursday nights from 7 to 8 pm Pacific.</p>
+<div class="container max-w-3xl mx-auto">
+  <p class="text-5xl">The Quadraphonic Rock Block</p>
+  <p>
+    is a radio show on KUCR, the campus radio station for the University of California, Riverside. It's music, broadcast on Thursday nights from 7 to 8 pm Pacific.
+  </p>
+
+  <h2 class="mt-8 text-2xl font-bold">This Week's Show</h2>
+  <ul class="list-disc pl-8 space-y-1 text-xl">
+    <li class="mt-4">
+      {mostRecentShow ? (
+        <Show 
+          url={`/shows/${mostRecentShow.id}/`} 
+          title={mostRecentShow.data.title} 
+          tags={mostRecentShow.data.tags} 
+        />
+      ) : (
+        <p>No recent shows available.</p>
+      )}
+    </li>
+  </ul>
+
+  <h2 class="mt-4 text-2xl font-bold">Last Few Shows</h2>
+  <ul class="list-disc pl-8 space-y-1 text-xl">
+    {nextThreeShows.map((show) =>
+      show && show.data && show.data.title ? (
+        <li class="mt-4">
+          <Show 
+            url={`/shows/${show.id}/`} 
+            title={show.data.title} 
+            tags={show.data.tags} 
+          />
+        </li>
+      ) : null
+    )}
+  </ul>
+</div>

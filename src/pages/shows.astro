@@ -4,16 +4,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Show from "../components/Show.astro";
 
 const pageTitle = "My Astro Learning Blog";
-const allShows = await getCollection("shows");
+const allShows = (await getCollection("shows")).sort((a, b) => {
+  // Sort by file name in descending order
+  if (a.id > b.id) return -1;
+  if (a.id < b.id) return 1;
+  return 0;
+});
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
-    {
-      allShows.map((show) => (
-        <Show url={`/posts/${show.id}/`} title={show.data.title} />
-      ))
-    }
-  </ul>
+  <div class="container max-w-3xl mx-auto">
+    <ul class="list-disc pl-6">
+      {
+        allShows.map((show) => (
+          <li class="custom-li-class">
+            <Show 
+              url={`/shows/${show.id}/`} 
+              title={show.data.title} 
+              tags={show.data.tags} 
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </BaseLayout>
