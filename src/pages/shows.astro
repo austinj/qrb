@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Show from "../components/Show.astro";
 
-const pageTitle = "My Astro Learning Blog";
+const pageTitle = "Shows";
 const allShows = (await getCollection("shows")).sort((a, b) => {
   // Sort by file name in descending order
   if (a.id > b.id) return -1;
@@ -13,7 +13,7 @@ const allShows = (await getCollection("shows")).sort((a, b) => {
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="container max-w-3xl mx-auto">
+  <div class="container max-w-3xl mx-auto pl-4 lg:pl-0">
     <ul class="list-disc pl-6">
       {
         allShows.map((show) => (

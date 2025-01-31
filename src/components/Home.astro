@@ -2,8 +2,6 @@
 import { getCollection } from "astro:content";
 import Show from "../components/Show.astro";
 
-const pageTitle = "KUCR";
-
 // Fetch and sort the collection by date in descending order
 const allShows = (await getCollection("shows"))
   .filter((show) => show && show.data && show.data.title && show.id) // Filter out invalid or incomplete entries
@@ -18,7 +16,7 @@ const mostRecentShow = allShows[0];
 const nextThreeShows = allShows.slice(1, 4);
 ---
 
-<div class="container max-w-3xl mx-auto">
+<div class="container max-w-3xl mx-auto pl-6 lg:pl-0">
   <p class="text-5xl">The Quadraphonic Rock Block</p>
   <p>
     is a radio show on <a class="text-black hover:underline" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast on Friday afternoons from 1 to 2 pm Pacific.
