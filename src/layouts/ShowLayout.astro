@@ -2,23 +2,29 @@
 import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
 import { Icon } from 'astro-icon/components'
+const pubDate = new Date(frontmatter.pubDate);
+const formattedDate = pubDate.toISOString().split("T")[0]; // Gets YYYY-MM-DD
+const [year, month, day] = formattedDate.split("-");
+const displayDate = `${month}-${day}-${year}`;
 ---
 <BaseLayout pageTitle={frontmatter.title}>
-<div class="container max-w-3xl mx-auto">
+<div class="container max-w-3xl mx-auto pb-10">
   <!-- Header Section -->
   <div class="flex justify-between items-start">
     <div>
       <h1 class="text-6xl font-bold">{frontmatter.title}</h1>
       <p class="flex items-center space-x-2">
         <Icon name="codicon:calendar" class="text-3xl" />
-        <span class="text-2xl">{frontmatter.pubDate.toLocaleDateString()}</span>
+        <span class="text-2xl">{displayDate}</span>
       </p>
+      {frontmatter.spinitron && frontmatter.spinitron.trim() !== "" && (
       <p class="flex items-center space-x-2">
         <Icon name="codicon:radio-tower" class="text-3xl" />
         <a href={frontmatter.spinitron} class="text-2xl hover:underline">
           Spinitron
         </a>
       </p>
+    )}
     </div>
   </div>
 
