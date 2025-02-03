@@ -10,7 +10,7 @@ const displayDate = `${month}-${day}-${year}`;
 <BaseLayout pageTitle={frontmatter.title}>
 <div class="container max-w-3xl mx-auto pb-10">
   <!-- Header Section -->
-  <div class="flex justify-between items-start">
+  <div class="flex justify-between items-start px-4 md:px-0">
     <div>
       <h1 class="text-6xl font-bold">{frontmatter.title}</h1>
       <p class="flex items-center space-x-2">
@@ -30,14 +30,14 @@ const displayDate = `${month}-${day}-${year}`;
 
   <!-- Centered Message Section -->
   <div class="text-center my-8">
-    <p class="text-red-700 italic font-bold text-4xl">
+    <p class="text-red-700 italic font-bold text-3xl md:text-4xl">
       {frontmatter.description}
     </p>
   </div>
 
 
 
-  <div class="relative w-[75%] mx-auto">
+  <div class="relative w-[90%] mx-auto">
     <iframe
       style="border-radius:12px"
       src={frontmatter.spotify}
