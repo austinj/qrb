@@ -6,9 +6,10 @@ const pubDate = new Date(frontmatter.pubDate);
 const formattedDate = pubDate.toISOString().split("T")[0]; // Gets YYYY-MM-DD
 const [year, month, day] = formattedDate.split("-");
 const displayDate = `${month}-${day}-${year}`;
+const showStamp = frontmatter.tags && frontmatter.tags.includes("songs i love");
 ---
 <BaseLayout pageTitle={frontmatter.title}>
-<div class="container max-w-3xl mx-auto pb-10">
+<div class="container max-w-3xl mx-auto pb-10 relative">
   <!-- Header Section -->
   <div class="flex justify-between items-start px-4 md:px-0">
     <div>
@@ -28,14 +29,19 @@ const displayDate = `${month}-${day}-${year}`;
     </div>
   </div>
 
+  <!-- Stamp -->
+  {showStamp && (
+    <div class="stamp">
+      songs i love
+    </div>
+  )}
+
   <!-- Centered Message Section -->
   <div class="text-center my-8">
     <p class="text-red-700 italic font-bold text-3xl md:text-4xl">
       {frontmatter.description}
     </p>
   </div>
-
-
 
   <div class="relative w-[90%] mx-auto">
     <iframe
@@ -49,8 +55,26 @@ const displayDate = `${month}-${day}-${year}`;
     ></iframe>
     <div class="absolute inset-0 bg-blue-600 opacity-10 pointer-events-none"></div>
   </div>
-  
-  
-  
 </div>
 </BaseLayout>
+
+<style>
+  .stamp {
+    position: absolute;
+    top: 5rem; /* Adjust this value to position it below the navbar */
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    font-family: 'Courier New', Courier, monospace; /* Use a custom font if available */
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    background-color: crimson; /* Stamp-like background color */
+    border: 2px solid white;
+    border-radius: 50%; /* Circular shape */
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transform: rotate(-10deg); /* Slight rotation for a stamp effect */
+    z-index: 10; /* Ensure it appears above other elements */
+  }
+</style>
