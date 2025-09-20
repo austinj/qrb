@@ -144,13 +144,13 @@ class SpotifyPlaylistExporter:
                 for item in data['items']:
                     track = item.get('track')
                     if track and track['type'] == 'track':
-                        # Extract basic track information
-                        artists = ', '.join([artist['name'] for artist in track['artists']])
-                        song = track['name']
-                        album_name = track['album']['name']
-                        album_id = track['album']['id']
-                        duration_ms = track['duration_ms']
-                        release_date = track['album']['release_date']
+                        # Extract basic track information with null checks
+                        artists = ', '.join([artist['name'] for artist in track['artists'] if artist and artist.get('name')])
+                        song = track.get('name', '') or ''
+                        album_name = track['album'].get('name', '') or '' if track.get('album') else ''
+                        album_id = track['album'].get('id', '') if track.get('album') else ''
+                        duration_ms = track.get('duration_ms', 0) or 0
+                        release_date = track['album'].get('release_date', '') if track.get('album') else ''
                         
                         # Convert duration from milliseconds to MM:SS format
                         duration_seconds = duration_ms // 1000
@@ -158,6 +158,11 @@ class SpotifyPlaylistExporter:
                         
                         # Extract release year
                         release_year = release_date.split('-')[0] if release_date else ''
+                        
+                        # Skip tracks with no valid data
+                        if not artists and not song:
+                            print(f"Skipping track with no artist/song data")
+                            continue
                         
                         tracks.append({
                             'artist': artists,
@@ -169,7 +174,8 @@ class SpotifyPlaylistExporter:
                             'label': ''  # Will be filled in later
                         })
                         
-                        album_ids.add(album_id)
+                        if album_id:  # Only add valid album IDs
+                            album_ids.add(album_id)
                 
                 # Get next page URL
                 url = data.get('next')
