@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Script to export Spotify playlists from 2025 shows to individual CSV files
-with track details (artist, song, album, duration, release year).
+Unified script to export Spotify playlists from all shows directly from markdown files
+to individual CSV files with track details (artist, song, release, duration, released year, label).
 """
 
 import os
@@ -13,6 +13,27 @@ import requests
 import time
 from dotenv import load_dotenv
 import base64
+import yaml
+
+
+def extract_frontmatter(file_path):
+    """Extract YAML frontmatter from a markdown file."""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    
+    # Match YAML frontmatter between --- delimiters (handle both \n and \r\n line endings)
+    frontmatter_match = re.match(r'^---\s*\r?\n(.*?)\r?\n---\s*(?:\r?\n|$)', content, re.DOTALL)
+    
+    if frontmatter_match:
+        frontmatter_content = frontmatter_match.group(1)
+        try:
+            return yaml.safe_load(frontmatter_content)
+        except yaml.YAMLError as e:
+            print(f"Error parsing YAML in {file_path}: {e}")
+            return None
+    else:
+        print(f"No frontmatter found in {file_path}")
+        return None
 
 
 class SpotifyPlaylistExporter:
@@ -166,28 +187,21 @@ class SpotifyPlaylistExporter:
                 break
         
         # Second pass: get detailed album information including labels
-        print(f"Fetching label information for {len(album_ids)} unique albums...")
-        album_details = self.get_album_details(list(album_ids))
-        
-        # Third pass: update tracks with label information
-        for track in tracks:
-            album_id = track['album_id']
-            if album_id in album_details:
-                track['label'] = album_details[album_id]['label']
-            del track['album_id']  # Remove temporary field
+        if album_ids:
+            print(f"Fetching label information for {len(album_ids)} unique albums...")
+            album_details = self.get_album_details(list(album_ids))
+            
+            # Third pass: update tracks with label information
+            for track in tracks:
+                album_id = track['album_id']
+                if album_id in album_details:
+                    track['label'] = album_details[album_id]['label']
+                del track['album_id']  # Remove temporary field
         
         return tracks
     
     def export_playlist_to_csv(self, playlist_id, show_title, pub_date):
         """Export a playlist to CSV file."""
-        print(f"Fetching tracks for {show_title} ({pub_date})...")
-        
-        tracks = self.get_playlist_tracks(playlist_id)
-        
-        if not tracks:
-            print(f"No tracks found for {show_title}")
-            return
-        
         # Create filename based on pub_date and show_title
         safe_title = re.sub(r'[^\w\s-]', '', show_title).strip()
         safe_title = re.sub(r'[-\s]+', '-', safe_title)
@@ -199,6 +213,19 @@ class SpotifyPlaylistExporter:
         
         filepath = output_dir / filename
         
+        # Check if file already exists
+        if filepath.exists():
+            print(f"Skipping {show_title} ({pub_date}) - file already exists: {filename}")
+            return
+        
+        print(f"Fetching tracks for {show_title} ({pub_date})...")
+        
+        tracks = self.get_playlist_tracks(playlist_id)
+        
+        if not tracks:
+            print(f"No tracks found for {show_title}")
+            return
+        
         # Write to CSV
         with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = ['artist', 'song', 'release', 'duration', 'released', 'label']
@@ -209,37 +236,62 @@ class SpotifyPlaylistExporter:
         
         print(f"Exported {len(tracks)} tracks to {filepath}")
     
-    def process_shows_csv(self, csv_file='shows_data.csv'):
-        """Process the shows CSV and export 2025 playlists."""
-        with open(csv_file, 'r', encoding='utf-8') as file:
-            reader = csv.DictReader(file)
+    def process_markdown_files(self):
+        """Process markdown files directly and export 2025 playlists."""
+        # Path to the shows directory
+        shows_dir = Path("src/shows")
+        
+        if not shows_dir.exists():
+            print(f"Directory {shows_dir} does not exist!")
+            return
+        
+        processed_count = 0
+        skipped_count = 0
+        
+        # Process all .md files in the shows directory
+        for md_file in shows_dir.glob("*.md"):
+            frontmatter = extract_frontmatter(md_file)
             
-            for row in reader:
-                pub_date = row['pubDate']
-                spotify_url = row['spotify']
-                title = row['title']
+            if frontmatter:
+                pub_date = frontmatter.get('pubDate', '')
+                spotify_url = frontmatter.get('spotify', '')
+                title = frontmatter.get('title', '')
                 
-                # Filter for 2025 shows
-                if pub_date.startswith('2025') and spotify_url:
+                # Filter for shows with Spotify URLs
+                if spotify_url:
                     playlist_id = self.extract_playlist_id(spotify_url)
                     
                     if playlist_id:
-                        self.export_playlist_to_csv(playlist_id, title, pub_date)
+                        # Check if already processed
+                        safe_title = re.sub(r'[^\w\s-]', '', title).strip()
+                        safe_title = re.sub(r'[-\s]+', '-', safe_title)
+                        filename = f"{pub_date}_{safe_title}_playlist.csv"
+                        filepath = Path("playlist_exports") / filename
+                        
+                        if filepath.exists():
+                            skipped_count += 1
+                            print(f"Skipping {title} ({pub_date}) - already processed")
+                        else:
+                            self.export_playlist_to_csv(playlist_id, title, pub_date)
+                            processed_count += 1
                     else:
                         print(f"Could not extract playlist ID from: {spotify_url}")
+        
+        print(f"\nProcessing completed!")
+        print(f"New playlists exported: {processed_count}")
+        print(f"Previously processed (skipped): {skipped_count}")
 
 
 def main():
     try:
         exporter = SpotifyPlaylistExporter()
-        exporter.process_shows_csv()
-        print("\nPlaylist export completed!")
+        exporter.process_markdown_files()
         
     except Exception as e:
         print(f"Error: {e}")
         print("\nMake sure to:")
         print("1. Set your Spotify API credentials in the .env file")
-        print("2. Install required packages: pip install requests python-dotenv")
+        print("2. Install required packages: pip install requests python-dotenv pyyaml")
 
 
 if __name__ == "__main__":
