@@ -8,9 +8,7 @@ const shows = defineCollection({
     schema: z.object({
       title: z.string(),
       pubDate: z.date(),
-      description: z.string(),
-      spinitron: z.string(),
-      spotify: z.string(),
+      spinitron: z.string().optional().nullable(),
       tags: z.array(z.string())
     })
 });

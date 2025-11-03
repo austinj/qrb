@@ -27,7 +27,7 @@ const nextThreeShows = allShows.slice(1, 4);
     <li class="mt-4">
       {mostRecentShow ? (
         <Show 
-          url={`/shows/${mostRecentShow.id}/`} 
+          url={mostRecentShow.data.spinitron && mostRecentShow.data.spinitron.trim() !== '' ? mostRecentShow.data.spinitron : '#'} 
           title={mostRecentShow.data.title} 
           tags={mostRecentShow.data.tags} 
         />
@@ -43,7 +43,7 @@ const nextThreeShows = allShows.slice(1, 4);
       show && show.data && show.data.title ? (
         <li class="mt-4">
           <Show 
-            url={`/shows/${show.id}/`} 
+            url={show.data.spinitron && show.data.spinitron.trim() !== '' ? show.data.spinitron : '#'} 
             title={show.data.title} 
             tags={show.data.tags} 
           />

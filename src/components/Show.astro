@@ -9,7 +9,7 @@ const { url, title, tags } = Astro.props as Props;
 ---
 
 <div class="flex items-center space-x-2">
-  <a href={url} class="text-blue-500 hover:underline font-semibold">
+  <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline font-semibold">
     {title}
   </a>
   <span class="text-gray-500">|</span>
