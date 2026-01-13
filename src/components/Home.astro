@@ -14,12 +14,26 @@ const allShows = (await getCollection("shows"))
 // Get the most recent show and the next three shows
 const mostRecentShow = allShows[0];
 const nextThreeShows = allShows.slice(1, 4);
+
+// Check if there's a show this week
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const oneWeekFromNow = new Date(today);
+oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+
+const isShowThisWeek = mostRecentShow && (() => {
+  const showDate = new Date(mostRecentShow.data.pubDate);
+  showDate.setHours(0, 0, 0, 0);
+  return showDate >= today && showDate < oneWeekFromNow;
+})();
+
+const showStatus = isShowThisWeek ? "is" : "is not";
 ---
 
 <div class="container max-w-3xl mx-auto px-4 md:px-0">
   <p class="md:text-5xl text-4xl">The Quadraphonic Rock Block</p>
   <p>
-    is a radio show on <a class="text-black hover:underline" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast on Friday afternoons from 1 to 2 pm Pacific.
+    {showStatus} a radio show on <a class="text-black hover:underline" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast every other Friday from 11 am to 12 pm Pacific. {isShowThisWeek ? "There is a show this Friday!" : "No show this week."}</p>
   </p>
 
   <h2 class="mt-4 md:mt-8 md:text-2xl text-xl font-bold">This Week's Show</h2>
