@@ -33,10 +33,10 @@ const showStatus = isShowThisWeek ? "is" : "is not";
 <div class="container max-w-3xl mx-auto px-4 md:px-0">
   <p class="md:text-5xl text-4xl">The Quadraphonic Rock Block</p>
   <p>
-    {showStatus} a radio show on <a class="text-black hover:underline" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast every other Friday from 11 am to 12 pm Pacific. {isShowThisWeek ? "There is a show this Friday!" : "No show this week."}</p>
+    is a radio show on <a class="text-black hover:underline" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast every other Friday from 11 am to 12 pm Pacific.<strong> {isShowThisWeek ? "There is a show this Friday!" : "There's no show this week."}</strong></p>
   </p>
 
-  <h2 class="mt-4 md:mt-8 md:text-2xl text-xl font-bold">This Week's Show</h2>
+  <h2 class="mt-4 md:mt-8 md:text-2xl text-xl font-bold">Most Recent Show</h2>
   <ul class="list-disc md:pl-8 pl-6 space-y-1 md:text-xl text-base">
     <li class="mt-4">
       {mostRecentShow ? (
