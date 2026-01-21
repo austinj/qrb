@@ -15,16 +15,27 @@ const allShows = (await getCollection("shows"))
 const mostRecentShow = allShows[0];
 const nextThreeShows = allShows.slice(1, 4);
 
-// Check if there's a show this week
+// Check if there's a show this week (shows are every other Friday)
 const today = new Date();
 today.setHours(0, 0, 0, 0);
-const oneWeekFromNow = new Date(today);
-oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+
+// Find the Friday of the current week
+const dayOfWeek = today.getDay();
+const daysUntilFriday = (5 - dayOfWeek + 7) % 7; // 5 = Friday
+const thisFriday = new Date(today);
+thisFriday.setDate(today.getDate() + daysUntilFriday);
+thisFriday.setHours(0, 0, 0, 0);
 
 const isShowThisWeek = mostRecentShow && (() => {
-  const showDate = new Date(mostRecentShow.data.pubDate);
-  showDate.setHours(0, 0, 0, 0);
-  return showDate >= today && showDate < oneWeekFromNow;
+  const lastShowDate = new Date(mostRecentShow.data.pubDate);
+  lastShowDate.setHours(0, 0, 0, 0);
+  
+  // Calculate weeks since last show
+  const msPerWeek = 7 * 24 * 60 * 60 * 1000;
+  const weeksSinceLastShow = Math.round((thisFriday.getTime() - lastShowDate.getTime()) / msPerWeek);
+  
+  // Show is every other week (bi-weekly), so check if weeks since last show is even
+  return weeksSinceLastShow >= 0 && weeksSinceLastShow % 2 === 0;
 })();
 
 const showStatus = isShowThisWeek ? "is" : "is not";
