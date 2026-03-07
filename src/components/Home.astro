@@ -15,37 +15,41 @@ const allShows = (await getCollection("shows"))
 const mostRecentShow = allShows[0];
 const nextThreeShows = allShows.slice(1, 4);
 
-// Check if there's a show this week (shows are every other Friday)
-const today = new Date();
-today.setHours(0, 0, 0, 0);
-
-// Find the Friday of the current week
-const dayOfWeek = today.getDay();
-const daysUntilFriday = (5 - dayOfWeek + 7) % 7; // 5 = Friday
-const thisFriday = new Date(today);
-thisFriday.setDate(today.getDate() + daysUntilFriday);
-thisFriday.setHours(0, 0, 0, 0);
-
-const isShowThisWeek = mostRecentShow && (() => {
-  const lastShowDate = new Date(mostRecentShow.data.pubDate);
-  lastShowDate.setHours(0, 0, 0, 0);
-  
-  // Calculate weeks since last show
-  const msPerWeek = 7 * 24 * 60 * 60 * 1000;
-  const weeksSinceLastShow = Math.round((thisFriday.getTime() - lastShowDate.getTime()) / msPerWeek);
-  
-  // Show is every other week (bi-weekly), so check if weeks since last show is even
-  return weeksSinceLastShow >= 0 && weeksSinceLastShow % 2 === 0;
-})();
-
-const showStatus = isShowThisWeek ? "is" : "is not";
+// Pass the most recent show date (YYYY-MM-DD) to the client for dynamic show-status calculation
+const lastShowDateStr = mostRecentShow ? mostRecentShow.data.pubDate.toISOString().slice(0, 10) : null;
 ---
 
 <div class="container max-w-3xl mx-auto px-4 md:px-0">
   <p class="md:text-5xl text-4xl">The Quadraphonic Rock Block</p>
   <p>
-    is a radio show on <a class="text-black hover:underline" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast every other Friday from 11 am to 12 pm Pacific.<strong> {isShowThisWeek ? "There is a show this Friday!" : "There's no show this week."}</strong></p>
+    is a radio show on <a class="text-black hover:underline" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast every other Friday from 11 am to 12 pm Pacific.<strong id="show-status" data-last-show={lastShowDateStr}></strong></p>
   </p>
+
+  <script>
+    const el = document.getElementById('show-status');
+    if (el && el.dataset.lastShow) {
+      const parts = el.dataset.lastShow.split('-');
+      const lastShowDate = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      // Find the next show date: advance from the last show by 2 weeks at a time
+      const nextShow = new Date(lastShowDate);
+      while (nextShow <= today) {
+        nextShow.setDate(nextShow.getDate() + 14);
+      }
+      // If last show is today, show today's date
+      if (lastShowDate.getTime() === today.getTime()) {
+        nextShow.setTime(today.getTime());
+      }
+
+      const formatted = nextShow.toLocaleDateString('en-US', {
+        month: 'long', day: 'numeric', year: 'numeric'
+      });
+      el.textContent = ` The next show is on ${formatted}.`;
+    }
+  </script>
 
   <h2 class="mt-4 md:mt-8 md:text-2xl text-xl font-bold">Most Recent Show</h2>
   <ul class="list-disc md:pl-8 pl-6 space-y-1 md:text-xl text-base">
