@@ -19,6 +19,7 @@
     "@iconify-json/la": "^1.2.1",
     "@iconify-json/material-symbols": "^1.2.12",
     "@iconify-json/mdi": "^1.2.2",
+    "@types/node": "^25.6.0",
     "astro-icon": "^1.1.5"
   }
 }
