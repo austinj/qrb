@@ -9,6 +9,8 @@ const shows = defineCollection({
       title: z.string(),
       pubDate: z.date(),
       spinitron: z.string().optional().nullable(),
+      spotify: z.string().optional().nullable(),
+      qobuz: z.string().optional().nullable(),
       tags: z.array(z.string())
     })
 });

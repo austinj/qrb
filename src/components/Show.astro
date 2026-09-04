@@ -1,11 +1,19 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   url: string;
   title: string;
   tags: string[];
+  spotify?: string | null;
+  qobuz?: string | null;
 }
 
-const { url, title, tags } = Astro.props as Props;
+const { url, title, tags, spotify, qobuz } = Astro.props as Props;
+
+// truncate tags on mobile once the joined list exceeds 25 chars
+const isLongTagList = tags.join(', ').length > 25;
+const mobileTags = isLongTagList ? tags.slice(0, 2) : tags;
 ---
 
 <div class="flex items-center space-x-2">
@@ -14,10 +22,32 @@ const { url, title, tags } = Astro.props as Props;
   </a>
   <span class="text-gray-500">|</span>
   <span class="text-gray-600">
-    {tags.map((tag, index) => (
-      <span>
-        {tag}{index < tags.length - 1 ? ', ' : ''}
+    <span class={isLongTagList ? "md:hidden" : ""}>
+      {mobileTags.map((tag, index) => (
+        <span>
+          {tag}{index < mobileTags.length - 1 ? ', ' : ''}
+        </span>
+      ))}
+    </span>
+    {isLongTagList && (
+      <span class="hidden md:inline">
+        {tags.map((tag, index) => (
+          <span>
+            {tag}{index < tags.length - 1 ? ', ' : ''}
+          </span>
+        ))}
       </span>
-    ))}
+    )}
   </span>
+  {spotify && (
+    <a href={spotify} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify" class="text-green-600 hover:text-green-700">
+      <Icon name="arcticons:spotify" class="w-4 h-4" />
+    </a>
+  )}
+  {qobuz && (
+    <a href={qobuz} target="_blank" rel="noopener noreferrer" aria-label="Listen on Qobuz" class="text-gray-700 hover:text-black">
+      <Icon name="arcticons:qobuz" class="w-4 h-4" />
+    </a>
+  )}
 </div>
+

@@ -22,7 +22,7 @@ const lastShowDateStr = mostRecentShow ? mostRecentShow.data.pubDate.toISOString
 <div class="container max-w-3xl mx-auto px-4 md:px-0">
   <p class="md:text-5xl text-4xl">The Quadraphonic Rock Block</p>
   <p>
-    is a radio show on <a class="text-blue-500 hover:underline font-semibold" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast by <a class="text-blue-500 hover:underline font-semibold" href="https://ahjohnson.com/">me</a> every other Friday from 11 am to 12 pm Pacific.<strong id="show-status" data-last-show={lastShowDateStr}></strong></p>
+    is a radio show on <a class="text-blue-500 hover:underline font-semibold" href="https://kucr.org/">KUCR</a>, the campus radio station for the University of California, Riverside. It's music, broadcast by <a class="text-blue-500 hover:underline font-semibold" href="https://ahjohnson.com/">me</a> every other Friday from 11 am to 12 pm Pacific.<strong id="show-status" data-last-show={lastShowDateStr}></strong>
   </p>
 
   <script>
@@ -52,13 +52,15 @@ const lastShowDateStr = mostRecentShow ? mostRecentShow.data.pubDate.toISOString
   </script>
 
   <h2 class="mt-4 md:mt-8 md:text-2xl text-xl font-bold">Most Recent Show</h2>
-  <ul class="list-disc md:pl-8 pl-6 space-y-1 md:text-xl text-base">
+  <ul class="list-none md:pl-8 pl-6 space-y-1 md:text-xl text-base">
     <li class="mt-4">
       {mostRecentShow ? (
         <Show 
           url={mostRecentShow.data.spinitron && mostRecentShow.data.spinitron.trim() !== '' ? mostRecentShow.data.spinitron : '#'} 
           title={mostRecentShow.data.title} 
           tags={mostRecentShow.data.tags} 
+          spotify={mostRecentShow.data.spotify}
+          qobuz={mostRecentShow.data.qobuz}
         />
       ) : (
         <p>No recent shows available.</p>
@@ -67,7 +69,7 @@ const lastShowDateStr = mostRecentShow ? mostRecentShow.data.pubDate.toISOString
   </ul>
 
   <h2 class="mt-4 md:text-2xl text-xl font-bold">Last Few Shows</h2>
-  <ul class="list-disc pl-8 space-y-1 md:text-xl text-base">
+  <ul class="list-none pl-8 space-y-1 md:text-xl text-base">
     {nextThreeShows.map((show) =>
       show && show.data && show.data.title ? (
         <li class="mt-4">
@@ -75,6 +77,8 @@ const lastShowDateStr = mostRecentShow ? mostRecentShow.data.pubDate.toISOString
             url={show.data.spinitron && show.data.spinitron.trim() !== '' ? show.data.spinitron : '#'} 
             title={show.data.title} 
             tags={show.data.tags} 
+            spotify={show.data.spotify}
+            qobuz={show.data.qobuz}
           />
         </li>
       ) : null

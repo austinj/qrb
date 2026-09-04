@@ -14,7 +14,7 @@ const allShows = (await getCollection("shows")).sort((a, b) => {
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="container max-w-3xl mx-auto pl-4 md:pl-0">
-    <ul class="list-disc pl-6">
+    <ul class="list-none pl-6 text-sm md:text-base">
       {
         allShows.map((show) => (
           <li class="custom-li-class">
@@ -22,6 +22,8 @@ const allShows = (await getCollection("shows")).sort((a, b) => {
               url={show.data.spinitron && show.data.spinitron.trim() !== '' ? show.data.spinitron : '#'} 
               title={show.data.title} 
               tags={show.data.tags} 
+              spotify={show.data.spotify}
+              qobuz={show.data.qobuz}
             />
           </li>
         ))
